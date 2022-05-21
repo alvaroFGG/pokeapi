@@ -106,4 +106,30 @@ header .headerPoke input::placeholder {
 .pokedex .pokedex__card h4 {
   text-transform: capitalize;
 }
+
+.nextBtn {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.nextBtn__button {
+  width: 200px;
+  height: 50px;
+  border: 0;
+  background-color: #4BB543;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.nextBtn__button:hover {
+  background-color: #277c21;
+}
 /*# sourceMappingURL=main.css.map */

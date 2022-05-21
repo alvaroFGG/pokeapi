@@ -1,8 +1,5 @@
-const API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=45';
-
-
 const pokedexSection$$ = document.querySelector("section[class = 'pokedex'");
-
+let OFFSET = 0;
 
 const elemsToDOM = (pokemon) =>{
     const cardDiv$$ = document.createElement("div");
@@ -32,8 +29,9 @@ const fetchEachElem = (url) => {
 }
 
 
-const fetchAPI = (url) => {
-    fetch(url)
+const fetchAPI = () => {
+    const API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=15&offset='+OFFSET;
+    fetch(API_URL)
     .then(response => response.json())
     .then(allPokemons => {
         allPokemons.results.forEach(element => {
@@ -46,5 +44,20 @@ const fetchAPI = (url) => {
     });
 } 
 
-fetchAPI(API_URL);
+
+const nextBtn$$ = document.querySelector("button[class='nextBtn__button']");
+nextBtn$$.addEventListener("click", () => {
+    pokedexSection$$.innerHTML = ``;
+    
+    if(OFFSET>=135){
+        alert("Ya has visto los 150 pokemons originales")
+        OFFSET = 0;
+    }else{
+        OFFSET+=15
+    }
+    
+    fetchAPI();
+});
+
+fetchAPI();
 
