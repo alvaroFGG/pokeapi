@@ -1,0 +1,38 @@
+header{
+    font-family: 'Press Start 2P', cursive;
+    width: 100vw;
+    height: 15vh;
+    background: url("/assets/img/background-header.png");
+    display: flex;
+
+    .headerPoke{
+       width: 100vw;
+       display: flex;
+       justify-content: space-between;
+       margin: 0 130px;
+        height: 15vh;
+        align-items: center;
+       h1{
+           color: white;
+       }
+
+       img{
+           width: 70px;
+       }
+
+       input{
+           width: 400px;
+           height: 30px;
+           border: 0;
+           background: none;
+           font-size: 1.5rem;
+           border-bottom: 2px solid white;
+           color: white;
+
+           &::placeholder{
+               color: whitesmoke;
+               font-size: 1.2rem;
+           }
+       }
+    }
+}
