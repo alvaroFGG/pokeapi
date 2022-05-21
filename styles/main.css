@@ -8,6 +8,10 @@
   list-style: none;
 }
 
+body {
+  background-color: #ffffb8;
+}
+
 header {
   font-family: 'Press Start 2P', cursive;
   width: 100vw;
@@ -16,6 +20,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 20px;
 }
 
 header .headerPoke {
@@ -69,5 +74,36 @@ header .headerPoke input::-ms-input-placeholder {
 header .headerPoke input::placeholder {
   color: whitesmoke;
   font-size: 1.2rem;
+}
+
+.pokedex {
+  width: 83vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 0 auto;
+}
+
+.pokedex .pokedex__card {
+  background: url("/assets/img/card-background.jpeg");
+  text-align: center;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 20px;
+  color: white;
+}
+
+.pokedex .pokedex__card h4 {
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,22 @@
+.pokedex{
+    width: 83vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0 auto;
+    
+    .pokedex__card{
+        background: url("/assets/img/card-background.jpeg");
+        text-align: center;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Press Start 2P', cursive;
+        border-radius: 20px;
+        color: white;
+        h4{
+            text-transform: capitalize;
+        }
+    }
+}
