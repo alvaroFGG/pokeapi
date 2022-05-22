@@ -24,7 +24,7 @@ const elemsToDOM = (pokemon) =>{
 const seeker = (allPokemons) =>{
     const filteredPokemons = [];
    
-    if(search$$.value!=''){
+    if(search$$.value != ''){
         
     
         for(const pokemon of allPokemons){
@@ -89,12 +89,26 @@ const fetchAPI = () => {
 } 
 
 
-const nextBtn$$ = document.querySelector("button[class='nextBtn__button']");
+const beforeBtn$$ = document.querySelector("button[class='nextBtn__button-before']");
+beforeBtn$$.addEventListener("click", () => {
+    pokedexSection$$.innerHTML = ``;
+    
+    if(OFFSET<=0){
+        alert("No hay pokemons más atrás")
+        OFFSET = 0;
+    }else{
+        OFFSET-=15
+    }
+    
+    fetchAPI();
+});
+
+const nextBtn$$ = document.querySelector("button[class='nextBtn__button-next']");
 nextBtn$$.addEventListener("click", () => {
     pokedexSection$$.innerHTML = ``;
     
     if(OFFSET>=135){
-        alert("Ya has visto los 150 pokemons originales")
+        alert("No hay pokemons más atrás")
         OFFSET = 0;
     }else{
         OFFSET+=15

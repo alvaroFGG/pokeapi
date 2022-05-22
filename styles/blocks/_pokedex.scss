@@ -26,19 +26,34 @@
     display: flex; 
     justify-content: center; 
     margin-top: 20px; 
+    gap: 10px;
     margin-bottom: 100px;
 
-    &__button{
-        width: 200px; 
+    &__button-next{
+        width: 50px; 
         height: 50px;
         border: 0;
-        background-color: #4BB543;
+        background-color: #4BB543;   
         color: white;
         font-size: 1rem;
         font-family: 'Press Start 2P', cursive;
 
         &:hover{
             background-color: #277c21;
+        }
+    }
+
+    &__button-before{
+        width: 50px; 
+        height: 50px;
+        border: 0;
+        background-color: #BB2124;
+        color: white;
+        font-size: 1rem;
+        font-family: 'Press Start 2P', cursive;
+
+        &:hover{
+            background-color: #781819;
         }
     }
 }

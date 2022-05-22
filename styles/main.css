@@ -116,11 +116,12 @@ header .headerPoke input::placeholder {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 20px;
+  gap: 10px;
   margin-bottom: 100px;
 }
 
-.nextBtn__button {
-  width: 200px;
+.nextBtn__button-next {
+  width: 50px;
   height: 50px;
   border: 0;
   background-color: #4BB543;
@@ -129,7 +130,21 @@ header .headerPoke input::placeholder {
   font-family: 'Press Start 2P', cursive;
 }
 
-.nextBtn__button:hover {
+.nextBtn__button-next:hover {
   background-color: #277c21;
+}
+
+.nextBtn__button-before {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background-color: #BB2124;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.nextBtn__button-before:hover {
+  background-color: #781819;
 }
 /*# sourceMappingURL=main.css.map */
