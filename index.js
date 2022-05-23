@@ -8,12 +8,14 @@ const elemsToDOM = (pokemon) =>{
     const cardDiv$$ = document.createElement("div");
     cardDiv$$.classList.add("pokedex__card");
     cardDiv$$.style.order = pokemon.order;
+    cardDiv$$.setAttribute("onclick","cardClick(this)");
 
     const img = document.createElement("img");
     img.setAttribute("src",pokemon.sprites.front_default);
 
     const pokemonName$$ = document.createElement("h4");
     pokemonName$$.textContent = pokemon.name;
+    // pokemonName$$.setAttribute("onclick","cardClick(this)");
 
     cardDiv$$.appendChild(img);
     cardDiv$$.appendChild(pokemonName$$);
@@ -117,5 +119,46 @@ nextBtn$$.addEventListener("click", () => {
     fetchAPI();
 });
 
+
+//Sistema de click a las cartas
+const pokemonByName = async (name) =>{
+    
+    let searchedPokemon = {};
+    const apiData = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+    const allApiData = await apiData.json();
+    
+    for(each of allApiData.results){
+        const fetchPokemon = await fetch(each.url);
+        const pokemon = await fetchPokemon.json();
+        
+        if(name === pokemon.name){
+            searchedPokemon = pokemon;
+        }
+
+    }
+    return searchedPokemon;
+}
+
+
+const cardClick = async (element) => {
+    const pokemonName = element.childNodes[1].textContent;
+    const pokemon = await pokemonByName(pokemonName);
+    console.log(pokemon);
+    element.innerHTML = `
+        <div class='pokedex__card--back'>
+            <h4 class='pokedex__card-type'>Type: ${pokemon.types[0].type.name}</h4>
+            <h3>Abilities:</h3>
+            <div class='pokedex__card-abilities'>
+                <h4>${pokemon.abilities[0].ability.name}</h4>
+                <h4>${pokemon.abilities[1].ability.name}</h4>
+            </div>
+        </div>
+    `;
+    
+}
+
+
 fetchAPI();
+
+
 

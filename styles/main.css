@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #ffffb8;
+  background: url("/assets/img/background-main2.webp");
 }
 
 header {
@@ -101,10 +101,37 @@ header .headerPoke input::placeholder {
   font-family: 'Press Start 2P', cursive;
   border-radius: 20px;
   color: white;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.pokedex .pokedex__card-abilities {
+  height: 150px;
+  font-size: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pokedex .pokedex__card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
 
 .pokedex .pokedex__card h4 {
+  margin-top: 10px;
   text-transform: capitalize;
+}
+
+.pokedex .pokedex__card h3 {
+  margin-top: 100px;
+  font-size: 1rem;
 }
 
 .nextBtn {
@@ -125,6 +152,7 @@ header .headerPoke input::placeholder {
   height: 50px;
   border: 0;
   background-color: #4BB543;
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
   font-family: 'Press Start 2P', cursive;
@@ -139,6 +167,7 @@ header .headerPoke input::placeholder {
   height: 50px;
   border: 0;
   background-color: #BB2124;
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
   font-family: 'Press Start 2P', cursive;
