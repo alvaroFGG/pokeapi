@@ -159,13 +159,14 @@ const pokemonByName = async (name) =>{
 
 const returnToPokemon = (pokemon, element, divCard) => {
     element.style.transform = 'rotateY(0deg)';
+    element.innerHTML =`<img src='${pokemon.sprites.front_default}'><h4>${pokemon.name}</h4>`;
     // element.innerHTML = `
         
     //         <img src='${pokemon.sprites.front_default}'>
     //         <h4>${pokemon.name}</h4>
         
     // `;
-    element.innerHTML = divCard;
+    // element.innerHTML = divCard;
     
 }
 
