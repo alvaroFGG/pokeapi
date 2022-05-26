@@ -18,6 +18,16 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         transition: 0.3s;
 
+        
+        &--back{
+            .pokedex__card-type{
+                margin: 50px 20px;
+                padding: 10px 10px;
+                border-radius: 10px;
+                color: white;
+            }
+        }
+
         &-abilities{
             height: 150px;
             font-size: 0.7rem;
@@ -35,7 +45,7 @@
         }
 
         h3{
-            margin-top: 100px;
+            margin-top: 50px;
             font-size:1rem;
         }
     }

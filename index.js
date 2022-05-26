@@ -3,6 +3,23 @@ const search$$ = document.querySelector("input[class='headerPoke__input']");
 let OFFSET = 0;
 let BOOL = true;
 
+const typeColors = {
+    fire: "#fa5542",
+    grass: "#8cd851",
+    electric: "#fde440",
+    water: "#55aefe",
+    ground: "#e9c857",
+    rock: "#cfbd73",
+    fairy: "#f8adff",
+    poison: "#aa5fa2",
+    bug: "#c3d21e",
+    dragon: "#8572ff",
+    psychic: "#f762b2",
+    flying: "#78a4ff",
+    fighting: "#ab5448",
+    normal: "#bcbdaf",
+}
+
 const elemsToDOM = (pokemon) =>{
     
     const cardDiv$$ = document.createElement("div");
@@ -140,21 +157,53 @@ const pokemonByName = async (name) =>{
 }
 
 
-const cardClick = async (element) => {
-    const pokemonName = element.childNodes[1].textContent;
-    const pokemon = await pokemonByName(pokemonName);
-    console.log(pokemon);
+const returnToPokemon = (pokemon, element) => {
+    element.style.transform = 'rotateY(0deg)';
     element.innerHTML = `
-        <div class='pokedex__card--back'>
-            <h4 class='pokedex__card-type'>Type: ${pokemon.types[0].type.name}</h4>
-            <h3>Abilities:</h3>
-            <div class='pokedex__card-abilities'>
-                <h4>${pokemon.abilities[0].ability.name}</h4>
-                <h4>${pokemon.abilities[1].ability.name}</h4>
-            </div>
-        </div>
+        
+            <img src='${pokemon.sprites.front_default}'>
+            <h4>${pokemon.name}</h4>
+        
     `;
     
+}
+
+
+const cardClick = async (element) => {
+    const pokemonName = element.childNodes[1].textContent;
+    console.log(pokemonName);
+    const pokemon = await pokemonByName(pokemonName);
+    
+    let background = "";
+    for (type in typeColors){
+        if(type === pokemon.types[0].type.name){
+            background = typeColors[type];
+        }else if(pokemon.types[0].type.name === "normal"){
+            background = "#bcbdaf";
+        }
+    }
+    console.log(background);
+
+    // // if (CARD_STATE==0){
+        element.style.transform = 'rotateY(360deg)';
+        element.innerHTML = `
+            <div class='pokedex__card--back'>
+                <h4 class='pokedex__card-type' style='background-color: ${background}'>${pokemon.types[0].type.name}</h4>
+                <h3>Abilities:</h3>
+                <div class='pokedex__card-abilities'>
+                    <h4>${pokemon.abilities[0].ability.name}</h4>
+                    <h4>${pokemon.abilities[1].ability.name}</h4>
+                </div>
+            </div>
+        `;
+
+        setTimeout(async () => {
+            returnToPokemon(pokemon,element);
+        },5000);
+
+        
+        //CARD_STATE = 1;
+    //}
 }
 
 

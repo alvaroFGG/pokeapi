@@ -107,6 +107,13 @@ header .headerPoke input::placeholder {
   transition: 0.3s;
 }
 
+.pokedex .pokedex__card--back .pokedex__card-type {
+  margin: 50px 20px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
 .pokedex .pokedex__card-abilities {
   height: 150px;
   font-size: 0.7rem;
@@ -130,7 +137,7 @@ header .headerPoke input::placeholder {
 }
 
 .pokedex .pokedex__card h3 {
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 1rem;
 }
 
