@@ -157,22 +157,24 @@ const pokemonByName = async (name) =>{
 }
 
 
-const returnToPokemon = (pokemon, element) => {
+const returnToPokemon = (pokemon, element, divCard) => {
     element.style.transform = 'rotateY(0deg)';
-    element.innerHTML = `
+    // element.innerHTML = `
         
-            <img src='${pokemon.sprites.front_default}'>
-            <h4>${pokemon.name}</h4>
+    //         <img src='${pokemon.sprites.front_default}'>
+    //         <h4>${pokemon.name}</h4>
         
-    `;
+    // `;
+    element.innerHTML = divCard;
     
 }
 
 
 const cardClick = async (element) => {
-    const pokemonName = element.childNodes[1].textContent;
+    let pokemonName = element.childNodes[1].textContent;
+    const divCard = element.innerHTML;
     console.log(pokemonName);
-    const pokemon = await pokemonByName(pokemonName);
+    let pokemon = await pokemonByName(pokemonName);
     
     let background = "";
     for (type in typeColors){
@@ -198,8 +200,8 @@ const cardClick = async (element) => {
         `;
 
         setTimeout(async () => {
-            returnToPokemon(pokemon,element);
-        },5000);
+            returnToPokemon(pokemon,element, divCard);
+        },7000);
 
         
         //CARD_STATE = 1;
